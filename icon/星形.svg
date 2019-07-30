@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>icon/星形</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="40" height="40"></rect>
+    </defs>
+    <g id="icon/星形" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-7">
+            <g>
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="矩形" fill="#F5F5F5" xlink:href="#path-1"></use>
+                <polygon id="星形" fill="#0678DD" mask="url(#mask-2)" points="20 32.5 7.6565097 38.9893569 10.0139066 25.2446784 0.0278131578 15.5106431 13.8282549 13.5053216 20 1 26.1717451 13.5053216 39.9721868 15.5106431 29.9860934 25.2446784 32.3434903 38.9893569"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
