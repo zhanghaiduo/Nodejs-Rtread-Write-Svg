@@ -39,19 +39,31 @@ function fileChange(file) {
             let w = data.toString().substring(data.toString().indexOf('width="') + 7, data.toString().indexOf('" height='))
             let h = data.toString().substring(data.toString().indexOf('height="') + 8, data.toString().indexOf('" viewBox='))
             let n = 0;
+            let stroke = '';
             let arr = [];
+            let new_data = data.toString();
+            if (data.toString().includes('stroke=')) {
+                stroke = data.toString().substring(data.toString().indexOf('stroke="') + 8, data.toString().indexOf('" stroke-width='))
+                
+            } else {
+                new_data = new_data.replace('id="', 'stroke="none" id="');
+                stroke = 'none'
+            }
             while (data.toString().indexOf('fill="#', n) != -1) {
                 let m = data.toString().indexOf('fill="#', n);
                 n = m + 1;
                 arr.push(data.toString().substring(n + 4, n + 13));
             }
-            let new_data = data.toString().replace(w, `%{w}`).replace(h, `%{h}`).replace('<svg ','<svg preserveAspectRatio="none" ')
+            new_data = new_data.toString().replace(w, `%{w}`).replace(h, `%{h}`).replace(`stroke="${stroke}"`, `stroke="%{stroke}"`).replace('<svg ', '<svg preserveAspectRatio="none" ');
             for (let i = 0; i < arr.length; i++) {
                 new_data = new_data.replace(`fill=${arr[i]}`, `fill="%{colors[${i}]}"`)
             }
+            // console.log('```stroke', stroke)
+            // console.log(new_data)
             jsonArr.push({
                 width: w.replace('px', ''),
                 height: h.replace('px', ''),
+                stroke: stroke,
                 name,
                 svg: new_data,
                 type: 1,
